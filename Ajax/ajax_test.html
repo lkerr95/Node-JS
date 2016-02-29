@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ajax Test</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="jquery-2.1.1.min.js"></script>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function() {
+                var request = $.ajax({
+					url: "http://localhost:3000/megaHelloWorld",
+					async: false,
+					type: "GET",
+					crossDomain: true,
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+				});
+
+				request.success(function(result) {
+					$('#displayGET').html(result);
+				});
+				request.fail(function(jqXHR, textStatus) {
+					$('#displayGET').html(textStatus);	
+				});
+			});
+			</script>
+			<script>
+            $(document).ready(function() {
+                var request = $.ajax({
+					url: "http://localhost:3000/megaHelloWorld",
+					async: false,
+					type: "POST",
+					crossDomain: true,
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+				});
+				
+				request.success(function(result) {
+					$('#displayPOST').html(result);
+				});
+
+				request.fail(function(jqXHR, textStatus) {
+					$('#displayPOST').html(textStatus);	
+				});	
+			});
+			</script>
+			        <script>
+            $(document).ready(function() {
+                var request = $.ajax({
+					url: "http://localhost:3000/megaHelloWorld",
+					async: false,
+					type: "PUT",
+					crossDomain: true,
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+				});
+				request.success(function(result) {
+					$('#displayPUT').html(result);
+				});
+				request.fail(function(jqXHR, textStatus) {
+					$('#displayPUT').html(textStatus);	
+				});
+			});
+			</script>
+			<script>
+            $(document).ready(function() {
+                var request = $.ajax({
+					url: "http://localhost:3000/megaHelloWorld",
+					async: false,
+					type: "DELETE",
+					crossDomain: true,
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+				});
+				
+				request.success(function(result) {
+					$('#displayDELETE').html(result);
+				});
+				request.fail(function(jqXHR, textStatus) {
+					$('#displayDELETE').html(textStatus);	
+				});
+			});
+			</script>
+			
+		<p id="displayGET"></p>
+		<p id="displayPOST"></p>
+		<p id="displayPUT"></p>
+		<p id="displayDELETE"></p>
+
+    </body>
+</html>
